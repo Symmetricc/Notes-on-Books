@@ -1,0 +1,85 @@
+1. With Blade.php you can @extend a view with a placeHolders @yield.
+
+2. You can pass "Model" through Route's first argument.
+
+3. You can bind a MODEL to a route to shorten the syntax.
+
+4. Using the Input::all you can retrieve an array of all input, combined with Eloquent::update($ARRAY) you can update or create new instance.
+
+5. Try to look for a way to take advantage of the Auth class.
+
+6. To redirect user to the page he wanted after he/she login we use Redirect::intended('/').
+
+7. Keep an eye on the Route::group thing; it could be usefull. 
+
+8. Using the validator to validte User Input.
+
+9. In HTML Laravel's FORM there exist a token to avoid CSRF. 
+
+10. Wrap your variables in three curly braces to protect from XSS. 
+
+11. To escape SQL Injection you can use the question mark.
+
+12. Look up the $guarded property when dealing with mass-assignment.
+
+13. For documenation reasons "php artisan routes" would be helpful.
+
+14. For optimization reasons you could use "php artisan optimize".
+
+15. Try to practice the TDD with PHPUnit and use related library.
+
+16. Third-party commands that may come in handy one day:
+	
+	A. way/generators for generating common classes.
+
+	B. Deploying with a command.
+
+	C. Vendor-cleanup wich clean the vendor file from any useless files.
+
+17. You can create your own command to automate some behavior.
+
+18. To explicitly Route URL to their corresponding controller we use the syntax Route::REST_API('URL',array('uses'=>'ControllerName@MethodName')
+
+19. Using Route::resource() with REST API you can easilt implement CRUD methods inside your controller.
+
+20. If we care about performance we should stay aware of the n+1 problem which caused by retriving records that have foreign key.
+
+21. Profiling your queries using https://github.com/loic-sharma/profiler or any other library you see fit.
+
+22. I don't recommend this but there exist a way to make recored recovering after deleting possible by giving Model protected $softDelete = true
+there are some other modification to be done to adopet this feature.
+
+23. If you are using $softDelete mentioned in (22) you can force delete using forceDelete() method.
+
+24. Interested in pagination ? It appears that Laravel support it nicly.
+
+25. Some Helper functions that Laravel provides:
+
+	A. Array Helper: array_get(), array_forget(), array_pull(),array_set(), array_except().
+
+	B. String Helper: Str::contains(), ::startsWtih(), ::endsWith(), ::title(), ::limit(), ::words().
+
+	C. File Upload Helper: Input::files('nameInHTMLForm')->move(), ->getRealPath(), ->getClientOriginalName(), ->getClientOriginalExtension(), ->getSize().
+
+	D. File Manipulation Helper: File::exists(), ::isFile(), ::get(), ::put(), ::delete(), ::copy(), {you can get basic infomration with other fucntions look it up}.
+
+	F. Email Helper
+26. Carbon objects for more flexible time.
+
+27. Eloquent has events listener. Those events can be fired on Created, Saved, Updated, Delete or restored.
+
+28. Eloquent assumes the foreign key of the relationship based on the model name. In this case, the Phone model is automatically assumed to have a user_id foreign key. If you wish to override this convention, you may pass a second argument to the hasOne method: return $this->hasOne('App\Phone','foreign_key')
+
+29. When you want to config the Auth::User class you have to modify those lines
+
+	A. config/auth/ 'model' => App\<YOUR_MODELS_FOLDER>\<MODEL_NAME>::class.
+
+	B. use App\<YOUR_MODELS_FOLDER>\<MODEL_NAME>.
+
+	C. Keep in mind that the password is hashed before it is stored in the DB.
+
+30. You can use the old attribute to access the Input or Request attribute, but you have to flash the Input or Request, and you can use ->withInput when redirecting.
+
+31. You can use the $errors attribute to access the Validator errors from the views and to flush the errors to the session you have to ->withErrors(Validator::make()).
+
+
